@@ -12,6 +12,8 @@ export default [
       "playwright/no-focused-test": "error",
       "playwright/no-useless-await": "error",
       "playwright/missing-playwright-await": "error",
+      "playwright/no-nested-step": "off",
+      "playwright/expect-expect": "off"
     },
   },
   { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },

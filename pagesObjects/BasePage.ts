@@ -1,14 +1,14 @@
 import test, { Page } from '@playwright/test';
 import { Navbar } from '../ui/components/Navbar';
-import { ShopRoute } from '../constants/routes';
+import { WebRoute } from '../constants/routes';
 
 export abstract class BasePage {
   public readonly page: Page;
   public readonly navbar: Navbar;
   public readonly isMobile: boolean;
-  protected readonly url: ShopRoute;
+  protected readonly url: WebRoute;
 
-  constructor(page: Page, url: ShopRoute, options = { isMobile: false }) {
+  constructor(page: Page, url: WebRoute, options = { isMobile: false }) {
     this.page = page;
     this.isMobile = options.isMobile;
     this.navbar = new Navbar(page, options);

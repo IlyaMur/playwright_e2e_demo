@@ -2,7 +2,7 @@ import test, { Page } from '@playwright/test';
 import { Button } from '../ui/elements/Button';
 import { BasePage } from './BasePage';
 import { Input } from '../ui/elements/Input';
-import { ShopRoute } from '../constants/routes';
+import { WebRoute } from '../constants/routes';
 import { UserData } from '../services/users';
 
 export class LoginPage extends BasePage {
@@ -13,7 +13,7 @@ export class LoginPage extends BasePage {
   private readonly name = 'Login';
 
   constructor(page: Page, options = { isMobile: false }) {
-    super(page, ShopRoute.LOGIN, options);
+    super(page, WebRoute.LOGIN, options);
     this.goToSignupButton = new Button('Go to Register button', page.getByTestId('go-to-signup-button'));
     this.loginButton = new Button('Login button', page.getByRole('button', { name: 'Login' }));
     this.emailInput = new Input('Email input', page.getByRole('textbox', { name: 'E-Mail' }));
@@ -34,7 +34,7 @@ export class LoginPage extends BasePage {
       await this.inputPassword(password);
       await this.loginButton.click();
       await test.step('Awaiting redirect to main page', async () => {
-        await this.page.waitForURL(ShopRoute.GALLERY);
+        await this.page.waitForURL(WebRoute.GALLERY);
       });
     });
   }

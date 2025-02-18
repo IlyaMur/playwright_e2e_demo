@@ -1,4 +1,4 @@
-export enum ShopRoute {
+export enum WebRoute {
   GALLERY = '/',
   SIGNUP = '/signup',
   ACCOUNT = '/my-account',
@@ -8,5 +8,5 @@ export enum ShopRoute {
 }
 
 export enum APIRoute {
-  SIGNUP = 'api/signup',
+  SIGNUP = 'api/signup'
 }

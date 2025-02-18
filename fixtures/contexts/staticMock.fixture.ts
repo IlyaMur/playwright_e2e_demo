@@ -8,3 +8,4 @@ export const staticMockContextFixture: Fixtures<PageContextFixture, PlaywrightTe
     await use(page);
   }
 };
+export { PageContextFixture };

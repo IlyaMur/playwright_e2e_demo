@@ -1,6 +1,6 @@
 import test, { Page } from '@playwright/test';
 import { BasePage } from './BasePage';
-import { ShopRoute } from '../constants/routes';
+import { WebRoute } from '../constants/routes';
 import { UserData } from '../services/users';
 import { Button } from '../ui/elements/Button';
 import { Input } from '../ui/elements/Input';
@@ -12,7 +12,7 @@ export class SignupPage extends BasePage {
   private readonly name = 'Registration';
 
   constructor(page: Page, options = { isMobile: false }) {
-    super(page, ShopRoute.SIGNUP, options);
+    super(page, WebRoute.SIGNUP, options);
     this.emailInput = new Input('Email input', page.getByRole('textbox', { name: 'E-Mail' }));
     this.passwordInput = new Input('Password input', page.getByRole('textbox', { name: 'Password' }));
     this.regButton = new Button('Button registration', page.getByRole('button', { name: 'Register' }));
@@ -37,7 +37,7 @@ export class SignupPage extends BasePage {
       await this.submitForm();
     });
     await test.step('Awaiting redirect to Account page', async () => {
-      await this.page.waitForURL(ShopRoute.ACCOUNT);
+      await this.page.waitForURL(WebRoute.ACCOUNT);
     });
   }
 }

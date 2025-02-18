@@ -1,6 +1,6 @@
 import { Fixtures } from '@playwright/test';
-import { ShopRoute } from '../../constants/routes';
 import { PageContextFixture } from '../contexts/staticMock.fixture';
+import { WebRoute } from '../../constants/routes';
 
 export type SignupContextFixture = {
   loginUser: void;
@@ -9,7 +9,7 @@ export type SignupContextFixture = {
 export const signupTestFixture: Fixtures<SignupContextFixture, PageContextFixture> = {
   loginUser: [
     async ({ contextPage }, use) => {
-      await contextPage.goto(ShopRoute.LOGIN);
+      await contextPage.goto(WebRoute.LOGIN);
       await use();
     },
     { auto: true }

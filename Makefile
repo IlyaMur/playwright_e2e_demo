@@ -6,7 +6,7 @@ start:
 	@bin/my_app_mac
 
 lint:
-	@npx eslint .
+	@npx eslint . && npx tsc -p tsconfig.json --noEmit
 
 allure:
 	@allure serve allure-results --clean

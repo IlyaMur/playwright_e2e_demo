@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { BaseElement } from './BaseElement.ts';
+import { BaseElement } from './BaseElement';
 
 export class TextField extends BaseElement {
   async hasValue(expectedValue: string) {

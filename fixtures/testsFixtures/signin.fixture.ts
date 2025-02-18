@@ -3,11 +3,11 @@ import { WebRoute } from '../../constants/routes';
 import { PageContextFixture } from '../contexts/staticMock.fixture';
 import { createUser } from '../../services/users';
 
-export type LoginContextFixture = {
+export type SigninContextFixture = {
   createUser: void;
 };
 
-export const loginTestFixture: Fixtures<LoginContextFixture, PageContextFixture> = {
+export const signinTestFixture: Fixtures<SigninContextFixture, PageContextFixture> = {
   createUser: [
     async ({ contextPage, email, password }, use) => {
       await createUser({ email, password }, await request.newContext());

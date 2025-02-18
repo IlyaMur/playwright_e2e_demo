@@ -14,7 +14,6 @@ export class AccountPage extends BasePage {
 
   async assertUserData(userData: string) {
     await test.step(`Assert ${this.name} contains data ${userData}`, async () => {
-      await this.visit();
       await this.userData.containsValue(userData);
     });
   }

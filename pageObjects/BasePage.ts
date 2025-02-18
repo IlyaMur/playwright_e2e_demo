@@ -23,7 +23,7 @@ export abstract class BasePage {
 
   async reload() {
     await test.step(`Reloading page with url ${this.url}`, async () => {
-      await this.page.reload({ waitUntil: 'domcontentloaded' });
+      await this.page.reload({ waitUntil: 'load' });
     });
   }
 }

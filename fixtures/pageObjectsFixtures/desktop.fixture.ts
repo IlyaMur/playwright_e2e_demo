@@ -1,12 +1,12 @@
 import { Fixtures } from '@playwright/test';
 import { PageContextFixture } from '../contexts/staticMock.fixture';
-import { AccountPage } from '../../pagesObjects/AccountPage';
-import { LoginPage } from '../../pagesObjects/LoginPage';
-import { SignupPage } from '../../pagesObjects/SignupPage';
+import { AccountPage } from '../../pageObjects/AccountPage';
+import { SigninPage } from '../../pageObjects/SigninPage';
+import { SignupPage } from '../../pageObjects/SignupPage';
 
 export type PageObjectsFixture = {
   signupPage: SignupPage;
-  loginPage: LoginPage;
+  signinPage: SigninPage;
   accountPage: AccountPage;
 };
 
@@ -14,8 +14,8 @@ export const pageObjectsDesktopFixture: Fixtures<PageObjectsFixture, PageContext
   signupPage: async ({ contextPage }, use) => {
     await use(new SignupPage(contextPage));
   },
-  loginPage: async ({ contextPage }, use) => {
-    await use(new LoginPage(contextPage));
+  signinPage: async ({ contextPage }, use) => {
+    await use(new SigninPage(contextPage));
   },
   accountPage: async ({ contextPage }, use) => {
     await use(new AccountPage(contextPage));

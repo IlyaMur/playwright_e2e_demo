@@ -7,11 +7,12 @@ test.beforeEach(() => suite('Registration'));
 test(
   'User registration',
   { tag: ['@smoke', '@signup'] },
-  async ({ signupPage, accountPage, loginPage, password, email }) => {
+  async ({ signupPage, accountPage, signinPage, password, email }) => {
     await allureTestInfo({ testId: '42', testSeverity: 'Critical' });
     
-    await loginPage.goToSignupButton.click();
+    await signinPage.goToSignupButton.click();
     await signupPage.submitRegisterForm({ email, password });
+
     await accountPage.assertUserData(email);
   }
 );

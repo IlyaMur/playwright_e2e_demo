@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "noEmit": true,
+    "types": ["node", "playwright"]
+  },
+  "include": ["**/*.ts", "**/*.js"],
+  "exclude": ["node_modules"]
+}
+

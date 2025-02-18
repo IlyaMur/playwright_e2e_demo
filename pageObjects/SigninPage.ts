@@ -5,12 +5,12 @@ import { Input } from '../ui/elements/Input';
 import { WebRoute } from '../constants/routes';
 import { UserData } from '../services/users';
 
-export class LoginPage extends BasePage {
+export class SigninPage extends BasePage {
   public readonly emailInput: Input;
   public readonly passwordInput: Input;
   public readonly loginButton: Button;
   public readonly goToSignupButton: Button;
-  private readonly name = 'Login';
+  private readonly name = 'Signin';
 
   constructor(page: Page, options = { isMobile: false }) {
     super(page, WebRoute.LOGIN, options);

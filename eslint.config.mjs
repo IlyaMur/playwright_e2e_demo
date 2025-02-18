@@ -1,22 +1,45 @@
 import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import playwright from 'eslint-plugin-playwright'
+import tseslint from "@typescript-eslint/eslint-plugin";
+import tseslintParser from "@typescript-eslint/parser";
+import playwright from "eslint-plugin-playwright";
+import prettier from "eslint-config-prettier";
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    files: ["**/*.{js,mjs,cjs,ts}"], ...playwright.configs['flat/recommended'],
+    files: ["**/*.{js,mjs,cjs,ts}"],
+    ...playwright.configs["flat/recommended"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+      },
+      parser: tseslintParser,
+      ecmaVersion: "latest",
+      sourceType: "module",
+    },
     rules: {
       "playwright/no-focused-test": "error",
       "playwright/no-useless-await": "error",
       "playwright/missing-playwright-await": "error",
-      "playwright/no-nested-step": "off",
-      "playwright/expect-expect": "off"
+      "no-unused-vars": "warn",
+      "no-console": "warn",
     },
   },
-  { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
-  { languageOptions: { globals: globals.browser } },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
+
+  {
+    files: ["**/*.ts"],
+    languageOptions: {
+      parserOptions: {
+        project: "./tsconfig.json",
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tseslint,
+    },
+    rules: {
+      ...tseslint.configs.recommended.rules,
+      "@typescript-eslint/no-unused-vars": "warn",
+    },
+  },
+
+  prettier,
 ];

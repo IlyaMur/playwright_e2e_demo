@@ -1,7 +1,8 @@
-import { loginTest as test } from '../../fixtures/tests';
+import { signinTest as test } from '../../fixtures/tests';
 
-test('User login', { tag: ['@smoke', '@login'] }, async ({ accountPage, loginPage, password, email }) => {
-  await loginPage.loginUser({ email, password });
+test('User login', { tag: ['@smoke', '@signin'] }, async ({ accountPage, signinPage, password, email }) => {
+  await signinPage.loginUser({ email, password });
+  await accountPage.visit();
 
   await accountPage.assertUserData(email);
 });

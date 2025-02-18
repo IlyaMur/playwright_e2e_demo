@@ -4,17 +4,17 @@ import { AccountPage } from '../../pageObjects/AccountPage';
 import { SigninPage } from '../../pageObjects/SigninPage';
 import { SignupPage } from '../../pageObjects/SignupPage';
 
-export type PageObjectsMobileFixture = {
+export type PageObjectsDesktopFixture = {
   signupPage: SignupPage;
-  signinPage: SigninPage;
+  loginPage: SigninPage;
   accountPage: AccountPage;
 };
 
-export const pageObjectsMobileFixture: Fixtures<PageObjectsMobileFixture, PageContextFixture> = {
+export const pageObjectsMobileFixture: Fixtures<PageObjectsDesktopFixture, PageContextFixture> = {
   signupPage: async ({ contextPage }, use) => {
     await use(new SignupPage(contextPage, { isMobile: true }));
   },
-  signinPage: async ({ contextPage }, use) => {
+  loginPage: async ({ contextPage }, use) => {
     await use(new SigninPage(contextPage, { isMobile: true }));
   },
   accountPage: async ({ contextPage }, use) => {

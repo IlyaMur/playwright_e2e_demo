@@ -3,8 +3,8 @@ import { signupMobileTest as test } from '../../fixtures/tests';
 test(
   'User registration',
   { tag: ['@smoke', '@signup'] },
-  async ({ accountPage, signupPage, loginPage, password, email }) => {
-    await loginPage.goToSignupButton.click();
+  async ({ accountPage, signupPage, signinPage, password, email }) => {
+    await signinPage.goToSignupButton.click();
     await signupPage.submitRegisterForm({ email, password });
 
     await accountPage.assertUserData(email);

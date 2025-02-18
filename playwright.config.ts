@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
-import * as dotenv from 'dotenv';
-dotenv.config();
+
+import 'dotenv/config';
 
 export default defineConfig({
   testDir: './tests',
@@ -30,7 +30,7 @@ export default defineConfig({
   ],
 
   webServer: {
-    command: process.env.CI ? './app/my_app_linux' : './app/my_app_mac',
+    command: process.env.CI ? './bin/my_app_linux' : './bin/my_app_mac',
     url: 'http://127.0.0.1:2221',
     reuseExistingServer: !process.env.CI
   }

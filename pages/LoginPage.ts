@@ -1,9 +1,9 @@
 import test, { Page } from '@playwright/test';
-import { Button } from '../elements/Button';
+import { Button } from '../ui/elements/Button';
 import { BasePage } from './BasePage';
-import { Input } from '../elements/Input';
-import { ShopRoute } from '../../constants/routes';
-import { UserData } from '../../services/users';
+import { Input } from '../ui/elements/Input';
+import { ShopRoute } from '../constants/routes';
+import { UserData } from '../services/users';
 
 export class LoginPage extends BasePage {
   public readonly emailInput: Input;

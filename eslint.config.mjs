@@ -8,7 +8,6 @@ export default [
   {
     files: ["**/*.{js,mjs,cjs,ts}"], ...playwright.configs['flat/recommended'],
     rules: {
-      ...playwright.configs['flat/recommended'].rules,
       "playwright/no-focused-test": "error",
       "playwright/no-useless-await": "error",
       "playwright/missing-playwright-await": "error",

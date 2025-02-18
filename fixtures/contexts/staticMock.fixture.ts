@@ -1,10 +1,6 @@
-import { Fixtures, Page, PlaywrightTestArgs } from '@playwright/test';
-import { blockStatic as mockStatic } from '../../utils/mocks';
-import { CommonUtilsFixture } from '../utils/common.fixture';
-
-export type PageContextFixture = CommonUtilsFixture & {
-  contextPage: Page;
-};
+import { Fixtures, PlaywrightTestArgs } from '@playwright/test';
+import { mockStatic as mockStatic } from '../../utils/mocks';
+import { PageContextFixture } from './types/pageObjectContext.fixture';
 
 export const staticMockContextFixture: Fixtures<PageContextFixture, PlaywrightTestArgs> = {
   contextPage: async ({ page }, use) => {

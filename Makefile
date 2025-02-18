@@ -3,7 +3,7 @@ PW=npx playwright test
 .PHONY: test start lint test-headed test-debug docker-test docker-clean docker-test-run allure test-allure clean-reports
 
 start:
-	@app/my_app_mac
+	@bin/my_app_mac
 
 lint:
 	@npx eslint .
@@ -24,6 +24,9 @@ clean-reports:
 	@rm -r allure-results test-results && echo "Test reports cleaned..."
 
 test-allure: test allure 
+
+install:
+	@npm i
 
 # Container start only
 

@@ -4,8 +4,8 @@ import { PageObjectsFixture, pageObjectsDesktopFixture } from './pageObjects/des
 import { commonUtilsFixture } from './utils/common.fixture';
 import { mergeFixtures } from '../utils/fixtures';
 import { PageContextFixture, staticMockContextFixture } from './contexts/staticMock.fixture';
-import { SignupContextFixture, signupTestFixture } from './tests/signup.fixture';
-import { LoginContextFixture, loginTestFixture } from './tests/signin.fixture';
+import { SignupContextFixture, signupTestFixture } from './testsFixtures/signup.fixture';
+import { LoginContextFixture, loginTestFixture } from './testsFixtures/signin.fixture';
 
 export const signupDesktopTest = base.extend<PageObjectsFixture & SignupContextFixture & PageContextFixture>(
   mergeFixtures(pageObjectsDesktopFixture, signupTestFixture, commonUtilsFixture, staticMockContextFixture)

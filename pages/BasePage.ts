@@ -1,12 +1,12 @@
 import test, { Page } from '@playwright/test';
-import { Navbar } from '../components/Navbar';
-import { ShopRoute } from '../../constants/routes';
+import { Navbar } from '../ui/components/Navbar';
+import { ShopRoute } from '../constants/routes';
 
 export abstract class BasePage {
   public readonly page: Page;
   public readonly navbar: Navbar;
   public readonly isMobile: boolean;
-  private readonly url: ShopRoute;
+  protected readonly url: ShopRoute;
 
   constructor(page: Page, url: ShopRoute, options = { isMobile: false }) {
     this.page = page;
@@ -16,7 +16,7 @@ export abstract class BasePage {
   }
 
   async visit() {
-    await test.step(`Opening the url "${this.url}"`, async () => {
+    await test.step(`Opening the url "${this.page}"`, async () => {
       await this.page.goto(this.url, { waitUntil: 'load' });
     });
   }

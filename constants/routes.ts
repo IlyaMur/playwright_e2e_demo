@@ -6,3 +6,7 @@ export enum ShopRoute {
   BASKET = '/basket',
   DELIVERY_DETAILS = '/delivery-details'
 }
+
+export enum APIRoute {
+  SIGNUP = 'api/signup',
+}

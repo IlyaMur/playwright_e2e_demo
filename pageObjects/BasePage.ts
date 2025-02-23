@@ -1,6 +1,6 @@
 import test, { Page } from '@playwright/test';
 import { WebRoute } from '../constants/routes';
-import { Navbar } from './components/Navbar';
+import { Navbar } from './desktop/components/Navbar';
 
 export abstract class BasePage {
   public readonly page: Page;
@@ -16,7 +16,7 @@ export abstract class BasePage {
   }
 
   async visit() {
-    await test.step(`Opening the url "${this.page}"`, async () => {
+    await test.step(`Opening the url "${this.url}"`, async () => {
       await this.page.goto(this.url, { waitUntil: 'load' });
     });
   }

@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { Button } from '../elements/Button';
+import { Button } from '../../pageElements/Button';
 
 export class Navbar {
   public page: Page;

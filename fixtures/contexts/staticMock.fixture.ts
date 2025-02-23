@@ -6,6 +6,7 @@ export const staticMockContextFixture: Fixtures<PageContextFixture, PlaywrightTe
   contextPage: async ({ page }, use) => {
     await mockStatic(page);
     await use(page);
+    await page.unrouteAll();
   }
 };
 export { PageContextFixture };

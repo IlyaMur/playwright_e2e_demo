@@ -1,11 +1,9 @@
 import { signupDesktopTest as test } from '../../fixtures/tests';
-import { label, suite } from 'allure-js-commons';
-import { allureTestInfo } from '../../services/allure/allure';
-import { AllureCustomLabel, AllureOwner, AllurePlatform, AllureSeverity, AllureSuite } from '../../constants/allure';
+import { allureSuiteInfo, allureTestInfo } from '../../services/allure/allure';
+import { AllureOwner, AllurePlatform, AllureSeverity, AllureSuite } from '../../constants/allure';
 
 test.beforeEach(async () => {
-  await suite(AllureSuite.SIGNUP);
-  await label(AllureCustomLabel.PLATFORM, AllurePlatform.WEB);
+  await allureSuiteInfo({ testSuite: AllureSuite.SIGNUP, testPlatform: AllurePlatform.WEB });
 });
 
 test(

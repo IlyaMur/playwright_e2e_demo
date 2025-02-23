@@ -3,7 +3,7 @@ PW=npx playwright test
 .PHONY: test start lint test-headed test-debug docker-test docker-clean docker-test-run allure test-allure clean-reports
 
 start:
-	@bin/app_mac
+	@bin/app_mac_arm
 
 lint:
 	@npx eslint . && npx tsc -p tsconfig.json --noEmit

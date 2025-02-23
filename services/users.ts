@@ -12,9 +12,7 @@ interface SignupResponse {
 }
 
 export async function createUser({ email, password }: UserData, request: APIRequestContext): Promise<string> {
-  let token!: string;
-
-  await test.step(`Creating user with email: ${email}`, async () => {
+  return await test.step(`Creating user with email: ${email}`, async () => {
     const url = new URL(APIRoute.SIGNUP, config.use?.baseURL).toString();
     const response = await request.post(url, { data: { username: email, password } });
 
@@ -23,8 +21,6 @@ export async function createUser({ email, password }: UserData, request: APIRequ
     }
 
     const json: SignupResponse = await response.json();
-    token = json.token;
+    return json.token;
   });
-
-  return token;
 }

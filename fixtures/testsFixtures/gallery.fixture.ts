@@ -3,15 +3,15 @@ import { WebRoute } from '../../constants/routes';
 import { PageContextFixture } from '../contexts/staticMock.fixture';
 import { createUser } from '../../services/users';
 
-export type SigninContextFixture = {
-  signinUser: void;
+export type GalleryContextFixture = {
+  gallerySetup: void;
 };
 
-export const signinTestFixture: Fixtures<SigninContextFixture, PageContextFixture> = {
-  signinUser: [
+export const galleryTestFixture: Fixtures<GalleryContextFixture, PageContextFixture> = {
+  gallerySetup: [
     async ({ contextPage, email, password }, use) => {
       await createUser({ email, password }, await request.newContext());
-      await contextPage.goto(WebRoute.LOGIN);
+      await contextPage.goto(WebRoute.GALLERY);
       await use();
     },
     { auto: true }

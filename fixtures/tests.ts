@@ -6,6 +6,7 @@ import { SignupContextFixture, signupTestFixture } from './testsFixtures/signup.
 import { PageObjectsFixture, pageObjectsDesktopFixture } from './pageObjectsFixtures/desktop.fixture';
 import { pageObjectsMobileFixture } from './pageObjectsFixtures/mobile.fixture';
 import { SigninContextFixture, signinTestFixture } from './testsFixtures/signin.fixture';
+import { GalleryContextFixture, galleryTestFixture } from './testsFixtures/gallery.fixture';
 
 export const signupDesktopTest = base.extend<PageObjectsFixture & SignupContextFixture & PageContextFixture>(
   mergeFixtures(pageObjectsDesktopFixture, signupTestFixture, commonUtilsFixture, staticMockContextFixture)
@@ -17,4 +18,8 @@ export const signupMobileTest = base.extend<PageObjectsFixture & SignupContextFi
 
 export const signinTest = base.extend<PageObjectsFixture & SigninContextFixture & PageContextFixture>(
   mergeFixtures(pageObjectsDesktopFixture, signinTestFixture, commonUtilsFixture, staticMockContextFixture)
+);
+
+export const galleryTest = base.extend<PageObjectsFixture & GalleryContextFixture & PageContextFixture>(
+  mergeFixtures(pageObjectsDesktopFixture, galleryTestFixture, commonUtilsFixture, staticMockContextFixture)
 );

@@ -1,15 +1,15 @@
 import test, { Page } from '@playwright/test';
-import { BasePage } from './BasePage';
-import { WebRoute } from '../constants/routes';
-import { TextField } from './elements/TextField';
+import { WebRoute } from '../../constants/routes';
+import { BasePage } from '../BasePage';
+import { TextElement } from '../pageElements/TextField';
 
 export class AccountPage extends BasePage {
-  public readonly userData: TextField;
+  public readonly userData: TextElement;
   private readonly name = 'Account';
 
   constructor(page: Page, options = { isMobile: false }) {
     super(page, WebRoute.ACCOUNT, options);
-    this.userData = new TextField('User data', page.getByText('My AccountEmail:'));
+    this.userData = new TextElement('User data', page.getByText('My AccountEmail:'));
   }
 
   async assertUserData(userData: string) {

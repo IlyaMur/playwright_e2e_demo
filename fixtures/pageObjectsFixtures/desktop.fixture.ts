@@ -1,13 +1,17 @@
 import { Fixtures } from '@playwright/test';
 import { PageContextFixture } from '../contexts/staticMock.fixture';
-import { AccountPage } from '../../pageObjects/AccountPage';
-import { SigninPage } from '../../pageObjects/SigninPage';
-import { SignupPage } from '../../pageObjects/SignupPage';
+import { AccountPage } from '../../pageObjects/desktop/AccountPage';
+import { SigninPage } from '../../pageObjects/desktop/SigninPage';
+import { SignupPage } from '../../pageObjects/desktop/SignupPage';
+import { GalleryPage } from '../../pageObjects/desktop/GalleyPage';
+import { PaymentPage } from '../../pageObjects/desktop/PaymentPage';
 
 export type PageObjectsFixture = {
   signupPage: SignupPage;
   signinPage: SigninPage;
   accountPage: AccountPage;
+  galleryPage: GalleryPage;
+  paymentPage: PaymentPage;
 };
 
 export const pageObjectsDesktopFixture: Fixtures<PageObjectsFixture, PageContextFixture> = {
@@ -19,5 +23,11 @@ export const pageObjectsDesktopFixture: Fixtures<PageObjectsFixture, PageContext
   },
   accountPage: async ({ contextPage }, use) => {
     await use(new AccountPage(contextPage));
+  },
+  galleryPage: async ({ contextPage }, use) => {
+    await use(new GalleryPage(contextPage));
+  },
+  paymentPage: async ({ contextPage }, use) => {
+    await use(new PaymentPage(contextPage));
   }
 };

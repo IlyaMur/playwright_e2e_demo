@@ -17,30 +17,32 @@ export class GalleryPage extends BasePage {
   }
 
   async getAllCards(): Promise<GalleryCard[]> {
-    return Promise.all(
-      (await this.cards.all()).map(async (locator) => {
-        return new GalleryCard(locator).checkCard();
-      })
-    );
+    return Promise.all((await this.cards.all()).map(async (locator) => new GalleryCard(locator)));
   }
 
-  async getCardByName(item: GalleryItem) {
-    const cardLocator = this.cards.filter({ hasText: item.title });
-    return await new GalleryCard(cardLocator).checkCard();
+  async getCardByName({ title }: GalleryItem) {
+    const cardLocator = this.cards.filter({ hasText: title });
+    const card = new GalleryCard(cardLocator);
+    await card.checkCard();
+    return card;
   }
 
   async addToBasket(items: GalleryItem[]) {
-    await test.step(`Add to basket items: ${items.map((item) => item.title).join(', ')}`, async () => {
+    await test.step(`Add to basket items: ${items.map((item) => `"${item.title}"`).join(', ')}`, async () => {
       for (const item of items) {
-        await this.basket.addItem(await new GalleryCard(this.cards.filter({ hasText: item.title })).checkCard());
+        const card = await this.getCardByName(item);
+        await this.basket.addItem(item);
+        await card.basketButton.click();
       }
     });
   }
 
   async deleteFromBasket(items: GalleryItem[]) {
-    await test.step(`Delete from basket items: ${items.map((item) => item.title).join(', ')}`, async () => {
+    await test.step(`Delete from basket items: ${items.map((item) => `"${item.title}"`).join(', ')}`, async () => {
       for (const item of items) {
-        await this.basket.deleteItem(await this.getCardByName(item));
+        const card = await this.getCardByName(item);
+        await this.basket.deleteItem(item);
+        await card.basketButton.click();
       }
     });
   }

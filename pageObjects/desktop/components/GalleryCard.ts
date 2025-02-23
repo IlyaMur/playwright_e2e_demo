@@ -26,7 +26,6 @@ export class GalleryCard {
     await test.step(`Click to basket button: ${await this.getName()}`, async () => {
       await this.basketButton.click();
     });
-    return this;
   }
 
   async checkCard() {
@@ -36,6 +35,5 @@ export class GalleryCard {
       await this.basketButton.isVisible();
       await this.basketButton.isClickable();
     });
-    return this;
   }
 }

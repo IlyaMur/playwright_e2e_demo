@@ -1,37 +1,22 @@
-import { GalleryCard } from './GalleryCard';
 import test from '@playwright/test';
+import { GalleryItem } from '../../../mocks/galleryCards';
 
 export class Basket {
-  private cards: GalleryCard[] = [];
+  private items: GalleryItem[] = [];
 
-  async addItem(card: GalleryCard) {
-    await test.step(`Add item ${await card.getName()} to basket:`, async () => {
-      this.cards.push(card);
-      await card.clickBasketButton();
+  async addItem(item: GalleryItem) {
+    await test.step(`Add item ${item.title} to basket:`, async () => {
+      this.items.push(item);
     });
   }
 
-  async deleteItem(card: GalleryCard) {
-    await test.step(`Delete item ${await card.getName()} from basket:`, async () => {
-      this.cards = (
-        await Promise.all(
-          this.cards.map(async (basketCard) =>
-            (await basketCard.getName()) === (await card.getName()) ? null : basketCard
-          )
-        )
-      ).filter((card) => card !== null);
-
-      await card.clickBasketButton();
+  async deleteItem(item: GalleryItem) {
+    await test.step(`Delete item ${item.title} from basket:`, async () => {
+      this.items = this.items.filter((basketItem) => basketItem.title !== item.title);
     });
   }
 
-  async getTotalPrice() {
-    let total = 0;
-
-    for (const card of this.cards) {
-      total += parseInt(await card.getPrice(), 10);
-    }
-
-    return total;
+  get totalPrice() {
+    return this.items.reduce((acc, item) => acc + item.price, 0);
   }
 }

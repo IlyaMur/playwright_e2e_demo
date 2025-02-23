@@ -29,5 +29,5 @@ export const pageObjectsDesktopFixture: Fixtures<PageObjectsFixture, PageContext
   },
   paymentPage: async ({ contextPage }, use) => {
     await use(new PaymentPage(contextPage));
-  }
+  },
 };

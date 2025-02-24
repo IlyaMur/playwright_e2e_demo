@@ -14,7 +14,6 @@ test(
 
     await signinPage.goToSignupButton.click();
     await signupPage.submitRegisterForm({ email, password });
-
     await accountPage.assertUserData(email);
   }
 );

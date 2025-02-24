@@ -11,6 +11,5 @@ test('User login', { tag: ['@smoke', '@signin'] }, async ({ accountPage, signinP
 
   await signinPage.loginUser({ email, password });
   await accountPage.visit();
-
   await accountPage.assertUserData(email);
 });

@@ -1,8 +1,7 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
+import { WebRoute } from '../../../constants/routes';
+import { TextElement } from '../../elements/TextField';
 import { BasePage } from '../BasePage';
-import { WebRoute } from '../../constants/routes';
-import { TextElement } from '../elements/TextField';
-import { expect } from '@playwright/test';
 
 export class PaymentPage extends BasePage {
   private readonly totalValue: TextElement;

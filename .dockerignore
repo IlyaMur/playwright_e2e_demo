@@ -1,3 +1,6 @@
 node_modules/
 test-results/
 allure-results/
+.git
+*.log
+.DS_Store

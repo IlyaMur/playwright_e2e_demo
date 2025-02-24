@@ -1,7 +1,7 @@
 import test, { Page } from '@playwright/test';
-import { WebRoute } from '../../constants/routes';
+import { WebRoute } from '../../../constants/routes';
+import { TextElement } from '../../elements/TextField';
 import { BasePage } from '../BasePage';
-import { TextElement } from '../elements/TextField';
 
 export class AccountPage extends BasePage {
   public readonly userData: TextElement;

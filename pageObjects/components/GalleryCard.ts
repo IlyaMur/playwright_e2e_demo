@@ -1,8 +1,7 @@
-import { Locator } from '@playwright/test';
-import { TextElement } from '../../elements/TextField';
-import { Button } from '../../elements/Button';
-import test from '@playwright/test';
-import { ShopItem } from '../../../mocks/shopItems';
+import test, { Locator } from '@playwright/test';
+import { ShopItem } from '../../mocks/shopItems';
+import { Button } from '../elements/Button';
+import { TextElement } from '../elements/TextField';
 
 export class GalleryCard {
   public readonly name: TextElement;

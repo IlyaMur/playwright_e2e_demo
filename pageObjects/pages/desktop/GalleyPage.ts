@@ -1,10 +1,9 @@
-import { Locator, Page } from '@playwright/test';
-import { WebRoute } from '../../constants/routes';
-import { BasePage } from '../BasePage';
-import { GalleryCard } from './components/GalleryCard';
-import { Basket } from './components/Basket';
-import { ShopItem } from '../../mocks/shopItems';
-import { test } from '@playwright/test';
+import test, { Locator, Page } from "@playwright/test";
+import { WebRoute } from "../../../constants/routes";
+import { ShopItem } from "../../../mocks/shopItems";
+import { Basket } from "../../components/Basket";
+import { GalleryCard } from "../../components/GalleryCard";
+import { BasePage } from "../BasePage";
 
 export class GalleryPage extends BasePage {
   public readonly cards: Locator;

@@ -1,5 +1,5 @@
 import test from '@playwright/test';
-import { ShopItem } from '../../../mocks/shopItems';
+import { ShopItem } from '../../mocks/shopItems';
 
 export class Basket {
   private items: ShopItem[] = [];

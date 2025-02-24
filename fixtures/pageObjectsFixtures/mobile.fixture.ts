@@ -1,8 +1,8 @@
 import { Fixtures } from '@playwright/test';
 import { PageContextFixture } from '../contexts/staticMock.fixture';
-import { AccountPage } from '../../pageObjects/desktop/AccountPage';
-import { SigninPage } from '../../pageObjects/desktop/SigninPage';
-import { SignupPage } from '../../pageObjects/desktop/SignupPage';
+import { AccountPage } from '../../pageObjects/pages/desktop/AccountPage';
+import { SigninPage } from '../../pageObjects/pages/desktop/SigninPage';
+import { SignupPage } from '../../pageObjects/pages/desktop/SignupPage';
 
 export type PageObjectsMobileFixture = {
   signupPage: SignupPage;

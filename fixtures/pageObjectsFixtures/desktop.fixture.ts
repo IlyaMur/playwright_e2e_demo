@@ -1,11 +1,11 @@
 import { Fixtures } from '@playwright/test';
+import { Basket } from '../../pageObjects/components/Basket';
+import { AccountPage } from '../../pageObjects/pages/desktop/AccountPage';
+import { GalleryPage } from '../../pageObjects/pages/desktop/GalleyPage';
+import { PaymentPage } from '../../pageObjects/pages/desktop/PaymentPage';
+import { SigninPage } from '../../pageObjects/pages/desktop/SigninPage';
+import { SignupPage } from '../../pageObjects/pages/desktop/SignupPage';
 import { PageContextFixture } from '../contexts/staticMock.fixture';
-import { AccountPage } from '../../pageObjects/desktop/AccountPage';
-import { SigninPage } from '../../pageObjects/desktop/SigninPage';
-import { SignupPage } from '../../pageObjects/desktop/SignupPage';
-import { GalleryPage } from '../../pageObjects/desktop/GalleyPage';
-import { PaymentPage } from '../../pageObjects/desktop/PaymentPage';
-import { Basket } from '../../pageObjects/desktop/components/Basket';
 
 export type PageObjectsFixture = {
   signupPage: SignupPage;

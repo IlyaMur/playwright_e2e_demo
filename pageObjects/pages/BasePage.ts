@@ -1,6 +1,6 @@
 import test, { Page } from '@playwright/test';
-import { WebRoute } from '../constants/routes';
-import { Navbar } from './desktop/components/Navbar';
+import { WebRoute } from '../../constants/routes';
+import { Navbar } from '../components/Navbar';
 
 export abstract class BasePage {
   public readonly page: Page;

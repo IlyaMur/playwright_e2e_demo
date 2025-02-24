@@ -20,15 +20,15 @@ export class GalleryPage extends BasePage {
     return Promise.all((await this.cards.all()).map(async (locator) => new GalleryCard(locator)));
   }
 
-  async getCardByName({ title }: GalleryItem) {
-    const cardLocator = this.cards.filter({ hasText: title });
+  async getCardByName(item: GalleryItem) {
+    const cardLocator = this.cards.filter({ hasText: item.title });
     const card = new GalleryCard(cardLocator);
-    await card.checkCard();
+    await card.checkCard(item);
     return card;
   }
 
   async addToBasket(items: GalleryItem[]) {
-    await test.step(`Add to basket items: ${items.map((item) => `"${item.title}"`).join(', ')}`, async () => {
+    await test.step(`Add to basket items: ${items.map((item) => `"${item.title}"`).join(', ')}"`, async () => {
       for (const item of items) {
         const card = await this.getCardByName(item);
         await this.basket.addItem(item);

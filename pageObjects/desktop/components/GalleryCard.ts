@@ -2,6 +2,7 @@ import { Locator } from '@playwright/test';
 import { TextElement } from '../../pageElements/TextField';
 import { Button } from '../../pageElements/Button';
 import test from '@playwright/test';
+import { GalleryItem } from '../../../mocks/galleryCards';
 
 export class GalleryCard {
   public readonly name: TextElement;
@@ -9,8 +10,8 @@ export class GalleryCard {
   public readonly basketButton: Button;
 
   constructor(cardLocator: Locator) {
-    this.name = new TextElement('Card title', cardLocator.getByTestId('product-title'));
-    this.price = new TextElement('Card price', cardLocator.locator('div.product-price[datatype="product-price"]'));
+    this.name = new TextElement('Title', cardLocator.getByTestId('product-title'));
+    this.price = new TextElement('Price', cardLocator.locator('div.product-price[datatype="product-price"]'));
     this.basketButton = new Button('Add to Basket button', cardLocator.getByTestId('product-button'));
   }
 
@@ -28,10 +29,14 @@ export class GalleryCard {
     });
   }
 
-  async checkCard() {
-    await test.step(`Check gallery card: ${await this.getName()}`, async () => {
+  async checkCard({ price, title }: GalleryItem) {
+    await test.step(`Assert gallery card: "${await this.getName()}" has price: ${price} and title: ${title}`, async () => {
       await this.name.isVisible();
+      await this.name.containsValue(title);
+
       await this.price.isVisible();
+      await this.price.containsValue(price.toString());
+
       await this.basketButton.isVisible();
       await this.basketButton.isClickable();
     });

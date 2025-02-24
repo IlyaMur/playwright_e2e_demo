@@ -1,9 +1,6 @@
 {
   "name": "playwright_example_project",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
   "author": "Ilya Mur",
   "license": "ISC",
   "description": "Playwright example project",

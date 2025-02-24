@@ -11,7 +11,7 @@ interface SignupResponse {
   token: string;
 }
 
-export async function createUser({ email, password }: UserData, request: APIRequestContext): Promise<string> {
+export async function createTestUser({ email, password }: UserData, request: APIRequestContext): Promise<string> {
   return await test.step(`Creating user with email: ${email}`, async () => {
     const url = new URL(APIRoute.SIGNUP, config.use?.baseURL).toString();
     const response = await request.post(url, { data: { username: email, password } });

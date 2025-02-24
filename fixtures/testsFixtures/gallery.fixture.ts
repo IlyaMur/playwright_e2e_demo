@@ -1,7 +1,7 @@
 import { Fixtures, request } from '@playwright/test';
 import { WebRoute } from '../../constants/routes';
 import { PageContextFixture } from '../contexts/staticMock.fixture';
-import { createUser } from '../../services/users';
+import { createTestUser } from '../../services/users';
 
 export type GalleryContextFixture = {
   gallerySetup: void;
@@ -10,7 +10,7 @@ export type GalleryContextFixture = {
 export const galleryTestFixture: Fixtures<GalleryContextFixture, PageContextFixture> = {
   gallerySetup: [
     async ({ contextPage, email, password }, use) => {
-      await createUser({ email, password }, await request.newContext());
+      await createTestUser({ email, password }, await request.newContext());
       await contextPage.goto(WebRoute.GALLERY);
       await use();
     },

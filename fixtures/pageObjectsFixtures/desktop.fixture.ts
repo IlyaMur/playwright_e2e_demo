@@ -1,7 +1,7 @@
 import { Fixtures } from '@playwright/test';
 import { Basket } from '../../pageObjects/components/Basket';
 import { AccountPage } from '../../pageObjects/pages/desktop/AccountPage';
-import { GalleryPage } from '../../pageObjects/pages/desktop/GalleyPage';
+import { GalleryPage } from '../../pageObjects/pages/desktop/GalleryPage';
 import { PaymentPage } from '../../pageObjects/pages/desktop/PaymentPage';
 import { SigninPage } from '../../pageObjects/pages/desktop/SigninPage';
 import { SignupPage } from '../../pageObjects/pages/desktop/SignupPage';

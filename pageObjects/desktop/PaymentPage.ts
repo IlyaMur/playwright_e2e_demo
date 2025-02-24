@@ -1,7 +1,7 @@
 import { Page } from '@playwright/test';
 import { BasePage } from '../BasePage';
 import { WebRoute } from '../../constants/routes';
-import { TextElement } from '../pageElements/TextField';
+import { TextElement } from '../elements/TextField';
 import { expect } from '@playwright/test';
 
 export class PaymentPage extends BasePage {

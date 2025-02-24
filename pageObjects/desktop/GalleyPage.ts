@@ -3,16 +3,17 @@ import { WebRoute } from '../../constants/routes';
 import { BasePage } from '../BasePage';
 import { GalleryCard } from './components/GalleryCard';
 import { Basket } from './components/Basket';
-import { GalleryItem } from '../../mocks/galleryCards';
+import { ShopItem } from '../../mocks/shopItems';
 import { test } from '@playwright/test';
 
 export class GalleryPage extends BasePage {
   public readonly cards: Locator;
-  public readonly basket: Basket = new Basket();
+  public readonly basket: Basket;
   private readonly name = 'Gallery';
 
-  constructor(page: Page, options = { isMobile: false }) {
+  constructor(page: Page, basket: Basket, options = { isMobile: false }) {
     super(page, WebRoute.GALLERY, options);
+    this.basket = basket;
     this.cards = page.getByTestId('product-card');
   }
 
@@ -20,14 +21,14 @@ export class GalleryPage extends BasePage {
     return Promise.all((await this.cards.all()).map(async (locator) => new GalleryCard(locator)));
   }
 
-  async getCardByName(item: GalleryItem) {
+  async getCardByName(item: ShopItem) {
     const cardLocator = this.cards.filter({ hasText: item.title });
     const card = new GalleryCard(cardLocator);
     await card.checkCard(item);
     return card;
   }
 
-  async addToBasket(items: GalleryItem[]) {
+  async addToBasket(items: ShopItem[]) {
     await test.step(`Add to basket items: ${items.map((item) => `"${item.title}"`).join(', ')}"`, async () => {
       for (const item of items) {
         const card = await this.getCardByName(item);
@@ -37,7 +38,7 @@ export class GalleryPage extends BasePage {
     });
   }
 
-  async deleteFromBasket(items: GalleryItem[]) {
+  async deleteFromBasket(items: ShopItem[]) {
     await test.step(`Delete from basket items: ${items.map((item) => `"${item.title}"`).join(', ')}`, async () => {
       for (const item of items) {
         const card = await this.getCardByName(item);

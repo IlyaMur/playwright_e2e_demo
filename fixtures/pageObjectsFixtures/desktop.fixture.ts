@@ -5,6 +5,7 @@ import { SigninPage } from '../../pageObjects/desktop/SigninPage';
 import { SignupPage } from '../../pageObjects/desktop/SignupPage';
 import { GalleryPage } from '../../pageObjects/desktop/GalleyPage';
 import { PaymentPage } from '../../pageObjects/desktop/PaymentPage';
+import { Basket } from '../../pageObjects/desktop/components/Basket';
 
 export type PageObjectsFixture = {
   signupPage: SignupPage;
@@ -25,9 +26,9 @@ export const pageObjectsDesktopFixture: Fixtures<PageObjectsFixture, PageContext
     await use(new AccountPage(contextPage));
   },
   galleryPage: async ({ contextPage }, use) => {
-    await use(new GalleryPage(contextPage));
+    await use(new GalleryPage(contextPage, new Basket()));
   },
   paymentPage: async ({ contextPage }, use) => {
     await use(new PaymentPage(contextPage));
-  },
+  }
 };

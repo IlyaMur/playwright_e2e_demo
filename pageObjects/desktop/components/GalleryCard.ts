@@ -1,8 +1,8 @@
 import { Locator } from '@playwright/test';
-import { TextElement } from '../../pageElements/TextField';
-import { Button } from '../../pageElements/Button';
+import { TextElement } from '../../elements/TextField';
+import { Button } from '../../elements/Button';
 import test from '@playwright/test';
-import { GalleryItem } from '../../../mocks/galleryCards';
+import { ShopItem } from '../../../mocks/shopItems';
 
 export class GalleryCard {
   public readonly name: TextElement;
@@ -29,7 +29,7 @@ export class GalleryCard {
     });
   }
 
-  async checkCard({ price, title }: GalleryItem) {
+  async checkCard({ price, title }: ShopItem) {
     await test.step(`Assert gallery card: "${await this.getName()}" has price: ${price} and title: ${title}`, async () => {
       await this.name.isVisible();
       await this.name.containsValue(title);

@@ -1,9 +1,9 @@
-export type GalleryItem = {
+export type ShopItem = {
   title: string;
   price: number;
 };
 
-export const galleryItemsMock: Record<string, GalleryItem> = {
+export const shopItemsMock: Record<string, ShopItem> = {
   astronautItem: {
     title: 'Astronaut dabbing',
     price: 499

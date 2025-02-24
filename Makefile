@@ -31,12 +31,12 @@ install:
 # Container start only
 
 build:
-	@docker build -t my-playwright-tests .
+	@docker build -t playwright-tests .
 
 docker-test:
-	@docker run --rm my-playwright-tests
+	@docker run --rm playwright-tests
 
 docker-clean:
-	@docker rmi -f my-playwright-tests 2>/dev/null || true
+	@docker rmi -f playwright-tests 2>/dev/null || true
 
 docker-test-run: build docker-test docker-clean

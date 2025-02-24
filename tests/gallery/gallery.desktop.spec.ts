@@ -1,7 +1,7 @@
 import test from '@playwright/test';
 import { AllureSuite, AllurePlatform, AllureSeverity, AllureOwner } from '../../constants/allure';
 import { galleryTest } from '../../fixtures/tests';
-import { galleryItemsMock } from '../../mocks/galleryCards';
+import { shopItemsMock } from '../../mocks/shopItems';
 import { allureSuiteInfo, allureTestInfo } from '../../services/allure/allure';
 
 test.beforeEach(async () => {
@@ -11,7 +11,7 @@ test.beforeEach(async () => {
 galleryTest('Add items to basket', { tag: ['@smoke', '@gallery'] }, async ({ galleryPage, paymentPage }) => {
   await allureTestInfo({ testId: '45', testSeverity: AllureSeverity.CRITICAL, testOwner: AllureOwner.IVAN_IVANOV });
 
-  const { astronautItem, ballonItem, landscapeItem, zebraItem } = galleryItemsMock;
+  const { astronautItem, ballonItem, landscapeItem, zebraItem } = shopItemsMock;
   await galleryPage.addToBasket([astronautItem, landscapeItem, zebraItem, ballonItem]);
   await galleryPage.deleteFromBasket([zebraItem]);
   await paymentPage.visit();

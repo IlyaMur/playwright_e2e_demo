@@ -1,16 +1,16 @@
 import test from '@playwright/test';
-import { GalleryItem } from '../../../mocks/galleryCards';
+import { ShopItem } from '../../../mocks/shopItems';
 
 export class Basket {
-  private items: GalleryItem[] = [];
+  private items: ShopItem[] = [];
 
-  async addItem(item: GalleryItem) {
+  async addItem(item: ShopItem) {
     await test.step(`Add item ${item.title} to basket:`, async () => {
       this.items.push(item);
     });
   }
 
-  async deleteItem(item: GalleryItem) {
+  async deleteItem(item: ShopItem) {
     await test.step(`Delete item ${item.title} from basket:`, async () => {
       this.items = this.items.filter((basketItem) => basketItem.title !== item.title);
     });

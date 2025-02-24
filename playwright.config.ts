@@ -15,7 +15,6 @@ export default defineConfig({
     trace: 'on-first-retry',
     testIdAttribute: 'data-qa'
   },
-
   projects: [
     {
       name: 'desktop',
@@ -28,7 +27,6 @@ export default defineConfig({
       testMatch: '**/*.mobile.spec.ts'
     }
   ],
-
   webServer: {
     command: process.env.CI ? './bin/app_linux_arm' : './bin/app_mac_arm',
     url: 'http://127.0.0.1:2221',

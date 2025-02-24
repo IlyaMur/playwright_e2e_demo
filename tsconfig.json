@@ -9,9 +9,21 @@
     "resolveJsonModule": true,
     "allowJs": true,
     "noEmit": true,
-    "types": ["node", "playwright"]
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "node",
+      "playwright"
+    ]
   },
-  "include": ["**/*.ts", "**/*.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*.ts",
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test-results",
+    "allure-results"
+  ]
 }
-

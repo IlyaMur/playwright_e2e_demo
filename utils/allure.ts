@@ -1,5 +1,5 @@
 import { severity, allureId, owner, description, suite, label } from 'allure-js-commons';
-import { AllureCustomLabel, AllureOwner, AllurePlatform, AllureSeverity } from '../../constants/allure';
+import { AllureCustomLabel, AllureOwner, AllurePlatform, AllureSeverity } from '../constants/allure';
 
 export interface AllureSuiteInfo {
   testSuite: string;

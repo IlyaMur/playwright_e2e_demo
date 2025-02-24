@@ -2,7 +2,7 @@ import test from '@playwright/test';
 import { AllureSuite, AllurePlatform, AllureSeverity, AllureOwner } from '../../constants/allure';
 import { galleryTest } from '../../fixtures/tests';
 import { shopItemsMock } from '../../mocks/shopItems';
-import { allureSuiteInfo, allureTestInfo } from '../../services/allure/allure';
+import { allureSuiteInfo, allureTestInfo } from '../../utils/allure';
 
 test.beforeEach(async () => {
   await allureSuiteInfo({ testSuite: AllureSuite.BASKET, testPlatform: AllurePlatform.WEB });

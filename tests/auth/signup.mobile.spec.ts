@@ -1,5 +1,5 @@
 import { signupMobileTest as test } from '../../fixtures/tests';
-import { allureSuiteInfo, allureTestInfo } from '../../services/allure/allure';
+import { allureSuiteInfo, allureTestInfo } from '../../utils/allure';
 import { AllureOwner, AllurePlatform, AllureSeverity, AllureSuite } from '../../constants/allure';
 
 test.beforeEach(async () => {

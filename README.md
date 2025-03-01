@@ -1,37 +1,43 @@
+![E2E Tests](https://github.com/ilyamur/playwright_e2e_demo/actions/workflows/ci.yml/badge.svg)
+
 # Playwright E2E Demo
 
-## О проекте
+## О проекте  
 
-Демо-проект автоматизированного E2E-тестирования с использованием [Playwright](https://playwright.dev/) + TypeScript.  
-Включает в себя примеры самих тестов, базовую структуру (Page Object, Page Elements, Fixtures), подключенный Allure, а также возможность запуска тестов как локально, так и в Docker-контейнере.
+Демо-проект автоматизированного E2E-тестирования с использованием Playwright:
+- Playwright + TypeScript
+- Allure Reports
+- GitHub CI Actions (allure-отчеты с CI автоматически публикуются на GitHub Pages)
+- Сборка и запуск в Docker
+
+[**Allure DEMO**](https://ilyamur.github.io/playwright_e2e_demo)
 
 ## Развертывание
 
 ### Локальная установка
 
 Приложение по которому гоняются тесты доступно в директории `bin` - бинарник с зашитой статикой и веб-сервером.  
-Доступны версии только для архитектур Apple Silicon и Linux Arm64.  
+Доступны версии для архитектур Apple Silicon, Linux AMD64/ARM64.  
 
 1. Подготовить .env:
    ```sh
    make env-prepare
    ```
-
-2. Установите зависимости:
+2. В .env указать версию прилы (лежат в ./bin)  
+3. Установить зависимости:  
    ```sh
    make install
    ```
-
-3. Запустите тесты:
+4. Запустить тесты:
    ```sh
    make test # запуск всего сюита
-   make test-mobile # запуск тестов с эмуляцией мобильного девайса
+   make test-mobile # запуск тестов под мобильный флоу
    make test-allure # запуск тестов с аллюр
    ```
 
 ### Docker
 
-Собрать и запустить проект в docker-контейнере (Dockerfile только в качестве демо, не для прода):
+Собрать и запустить проект в `docker`-контейнере
    ```sh
    make prepare-env
    make docker-test-run
@@ -82,4 +88,4 @@ test('Add items to basket', { tag: ['@smoke', '@gallery'] }, async ({ galleryPag
 
 ## Дополнительно
 
-В `Makefile` предоставлены основные CLI-команды для управления проектом.
+В `Makefile` представлены основные CLI-команды для управления проектом.

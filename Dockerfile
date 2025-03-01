@@ -4,7 +4,6 @@
 FROM mcr.microsoft.com/playwright:v1.50.1-jammy
 
 WORKDIR /app
-ENV CI=1
 
 RUN apt-get update && apt-get install -y make && rm -rf /var/lib/apt/lists/*
 

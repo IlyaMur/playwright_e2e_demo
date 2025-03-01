@@ -29,7 +29,7 @@ clean-reports:
 test-allure: test allure 
 
 install:
-	@npm i
+	@npm i && npx playwright install
 
 env-prepare:
 	mv .env.example .env

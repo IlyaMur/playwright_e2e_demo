@@ -40,7 +40,7 @@ jobs:
       - name: Upload Allure report as artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: allure-report
+          path: .
 
   deploy:
     needs: test

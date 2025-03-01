@@ -26,13 +26,16 @@ jobs:
       - name: Make binary executable
         run: chmod +x ./bin/app_linux_amd64
 
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline@2.24.0
+
       - name: Run Playwright tests
         run: make test
 
       - name: Generate Allure report
         run: |
-          npx allure generate allure-results --clean -o allure-report
-          touch allure-report/.nojekyll
+            allure generate allure-results --clean -o allure-report
+            touch allure-report/.nojekyll
 
       - name: Upload Allure report as artifact
         uses: actions/upload-artifact@v4

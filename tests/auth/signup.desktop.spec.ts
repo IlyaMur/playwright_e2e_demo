@@ -1,9 +1,9 @@
 import { signupDesktopTest as test } from '../../fixtures/tests';
 import { allureSuiteInfo, allureTestInfo } from '../../utils/allure';
-import { AllureOwner, AllurePlatform, AllureSeverity, AllureSuite } from '../../constants/allure';
+import { AllureOwner, AllurePlatform, AllureSeverity, AllureFeature } from '../../constants/allure';
 
 test.beforeEach(async () => {
-  await allureSuiteInfo({ testSuite: AllureSuite.SIGNUP, testPlatform: AllurePlatform.WEB });
+  await allureSuiteInfo({ testFeature: AllureFeature.SIGNUP, testPlatform: AllurePlatform.WEB });
 });
 
 test(

@@ -26,6 +26,7 @@
    ```sh
    make test # запуск всего сюита
    make test-mobile # запуск тестов с эмуляцией мобильного девайса
+   make test-allure # запуск тестов с аллюр
    ```
 
 ### Docker
@@ -39,62 +40,25 @@
 ## Структура
 
 ```sh
-├── bin # бинарники веб-прилы по которой гоняются тесты (запускается автоматически)
-│   ├── README.md
-│   ├── app_linux_arm
-│   └── app_mac_arm
-├── constants # константные данные для тестов (лейблы аллюр, маршруты, конфиги и т.д)
-│   ├── allure.ts
-│   └── routes.ts
+├── bin # бинарники веб-прилы по которой гоняются тесты
+├── constants # лейблы аллюр, маршруты, конфиги и т.д
 ├── fixtures # тестовые данные Playwright
 │   ├── contexts
-│   │   ├── types
-│   │   │   └── pageObjectContext.fixture.ts
-│   │   └── staticMock.fixture.ts
 │   ├── pageObjectsFixtures
-│   │   ├── desktop.fixture.ts
-│   │   └── mobile.fixture.ts
 │   ├── testsFixtures
-│   │   ├── gallery.fixture.ts
-│   │   ├── signin.fixture.ts
-│   │   └── signup.fixture.ts
-│   ├── utils
-│   │   └── common.fixture.ts
-│   └── tests.ts
+│   └── utils
 ├── mocks
-│   └── shopItems.ts
 ├── pageObjects # реализации POM, Page Elements, Components
 │   ├── components
-│   │   ├── Basket.ts
-│   │   ├── GalleryCard.ts
-│   │   └── Navbar.ts
 │   ├── elements
-│   │   ├── BaseElement.ts
-│   │   ├── Button.ts
-│   │   ├── Input.ts
-│   │   └── TextField.ts
 │   └── pages
 │       ├── desktop
-│       │   ├── AccountPage.ts
-│       │   ├── GalleryPage.ts
-│       │   ├── PaymentPage.ts
-│       │   ├── SigninPage.ts
-│       │   └── SignupPage.ts
-│       ├── mobile
-│       └── BasePage.ts
+│       └── mobile
 ├── services # доступ к API внешних сервисов
-│   └── users.ts
-├── tests
+├── tests # сами файлы тестов
 │   ├── auth
-│   │   ├── signin.desktop.spec.ts
-│   │   ├── signup.desktop.spec.ts
-│   │   └── signup.mobile.spec.ts
 │   └── gallery
-│       └── gallery.desktop.spec.ts
-├── utils
-│   ├── allure.ts
-│   ├── fixtures.ts
-│   └── mocks.ts
+└── utils
 ```
 
 ## Пример теста

@@ -1,4 +1,4 @@
-export enum AllureSuite {
+export enum AllureFeature {
   SIGNUP = 'App Signup',
   SIGNIN = 'App Signin',
   BASKET = 'Basket operations'

@@ -1,8 +1,8 @@
-import { severity, allureId, owner, description, suite, label } from 'allure-js-commons';
+import { severity, allureId, owner, description, label, feature } from 'allure-js-commons';
 import { AllureCustomLabel, AllureOwner, AllurePlatform, AllureSeverity } from '../constants/allure';
 
 export interface AllureSuiteInfo {
-  testSuite: string;
+  testFeature: string;
   testPlatform: AllurePlatform;
 }
 
@@ -13,8 +13,8 @@ export interface AllureTestInfo {
   testDescription?: string;
 }
 
-export async function allureSuiteInfo({ testSuite, testPlatform }: AllureSuiteInfo) {
-  await suite(testSuite);
+export async function allureSuiteInfo({ testFeature: testSuite, testPlatform }: AllureSuiteInfo) {
+  await feature(testSuite);
   await label(AllureCustomLabel.PLATFORM, testPlatform);
 }
 

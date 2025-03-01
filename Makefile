@@ -14,6 +14,9 @@ allure:
 test:
 	@$(PW)
 
+test-mobile:
+	@$(PW) --project=mobile
+
 test-headed:
 	@$(PW) --headed
 
@@ -27,6 +30,9 @@ test-allure: test allure
 
 install:
 	@npm i
+
+env-prepare:
+	mv .env.example .env
 
 # Container start only
 

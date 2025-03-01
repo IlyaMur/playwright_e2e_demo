@@ -32,25 +32,25 @@ jobs:
       - name: Run Playwright tests
         run: make test
 
-      - name: Get Allure history # Step to retrieve Allure history
+      - name: Get Allure history
         uses: actions/checkout@v3
         if: always() # Execute even if previous steps fail
-        continue-on-error: true # Continue execution even if the step fails
+        continue-on-error: true
         with:
-          ref: gh-pages # Specify the branch to retrieve Allure history from
-          path: gh-pages # Set the destination path for Allure history
+          ref: gh-pages
+          path: gh-pages
 
-      - name: Allure report action # Step to generate Allure report
+      - name: Allure report action
         uses: simple-elf/allure-report-action@master
         if: always() # Execute even if previous steps fail
         with:
-          allure_results: ${{ vars.ALLURE_RESULTS_PATH }} # Specify the directory containing Allure results
-          allure_history: allure-history # Specify the directory to store Allure history
-          keep_reports: 5 # Specify the number of previous reports to keep
+          allure_results: ${{ vars.ALLURE_RESULTS_PATH }}
+          allure_history: allure-history
+          keep_reports: 5
 
-      - name: Deploy Allure report to GitHub Pages # Step to deploy Allure report to GitHub Pages
+      - name: Deploy Allure report to GitHub Pages
         if: always() # Execute even if previous steps fail
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Provide the GitHub token for authentication
-          publish_dir: allure-history # Specify the directory containing the report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-history

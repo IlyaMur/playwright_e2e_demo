@@ -12,30 +12,26 @@
 
 [**Allure DEMO**](https://ilyamur.github.io/playwright_e2e_demo)
 
-## Развертывание
+## Развертывание  
 
-### Локальная установка
+```sh
+git clone https://github.com/IlyaMur/playwright_e2e_demo
+cd playwright_e2e_demo
+make env-prepare # подготовить .env
+make install
+```
+Приложение по которому гоняются тесты доступно в директории `/bin` - бинарник с зашитой статикой и веб-сервером.  
+Доступны версии для архитектур Apple Silicon, Linux AMD64/ARM64. В .env можно указать желаемую версию прилы.
 
-Приложение по которому гоняются тесты доступно в директории `bin` - бинарник с зашитой статикой и веб-сервером.  
-Доступны версии для архитектур Apple Silicon, Linux AMD64/ARM64.  
+## Запуск тестов
 
-1. Подготовить .env:
-   ```sh
-   make env-prepare
-   ```
-2. В .env указать версию прилы (лежат в ./bin)  
-3. Установить зависимости:  
-   ```sh
-   make install
-   ```
-4. Запустить тесты:
    ```sh
    make test # запуск всего сюита
    make test-mobile # запуск тестов под мобильный флоу
    make test-allure # запуск тестов с аллюр
    ```
 
-### Docker
+## Docker
 
 Собрать и запустить проект в `docker`-контейнере
    ```sh
@@ -71,11 +67,11 @@
 
 ```typescript
 test.beforeEach(async () => {
-  await allureSuiteInfo({ testSuite: AllureSuite.BASKET, testPlatform: AllurePlatform.WEB });
+  await allureSuiteInfo({ testFeature: AllureFeature.BASKET, testPlatform: AllurePlatform.WEB });
 });
 
 test('Add items to basket', { tag: ['@smoke', '@gallery'] }, async ({ galleryPage, paymentPage }) => {
-  await allureTestInfo({ testId: '42', testSeverity: AllureSeverity.CRITICAL, testOwner: AllureOwner.IVAN_IVANOV });
+  await allureTestInfo({ testId: '45', testSeverity: AllureSeverity.CRITICAL, testOwner: AllureOwner.IVAN_IVANOV });
 
   const { astronautItem, ballonItem, landscapeItem, zebraItem } = shopItemsMock;
   await galleryPage.addToBasket([astronautItem, landscapeItem, zebraItem, ballonItem]);
@@ -83,7 +79,6 @@ test('Add items to basket', { tag: ['@smoke', '@gallery'] }, async ({ galleryPag
   await paymentPage.visit();
   await paymentPage.assertTotalValue(galleryPage.basket.totalPrice);
 });
-
 ```
 
 ## Дополнительно

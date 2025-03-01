@@ -28,7 +28,7 @@ export default defineConfig({
     }
   ],
   webServer: {
-    command: process.env.CI ? './bin/app_linux_arm' : './bin/app_mac_arm',
+    command: process.env.CI ? './bin/app_linux_amd64' : './bin/app_mac_arm',
     url: 'http://127.0.0.1:2221',
     reuseExistingServer: !process.env.CI
   }

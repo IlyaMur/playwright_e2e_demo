@@ -1,0 +1,59 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU for ARM emulation
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Prepare env
+        run: make env-prepare
+
+      - name: Make ARM binary executable
+        run: chmod +x ./bin/app_linux_arm
+
+      - name: Start ARM binary
+        run: qemu-aarch64-static ./bin/app_linux_arm &
+
+      - name: Run Playwright tests
+        run: make test
+
+      - name: Generate Allure report
+        run: |
+          npx allure generate allure-results --clean -o allure-report
+          touch allure-report/.nojekyll
+
+      - name: Upload Allure report as artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: allure-report
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy Allure report to GitHub Pages
+        uses: actions/deploy-pages@v2

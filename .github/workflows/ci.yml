@@ -21,7 +21,7 @@ jobs:
         run: make install
 
       - name: Prepare env
-        run: make prepare-env
+        run: make env-prepare
 
       - name: Make binary executable
         run: chmod +x ./bin/app_linux_amd64

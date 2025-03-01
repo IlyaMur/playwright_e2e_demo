@@ -1,0 +1,5 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","4829","User registration","mobile","Sat Mar 01 11:48:17 GMT 2025","passed","Sat Mar 01 11:48:21 GMT 2025","","auth/signup.mobile.spec.ts","",""
+"","5853","User login","desktop","Sat Mar 01 11:48:17 GMT 2025","passed","Sat Mar 01 11:48:22 GMT 2025","","auth/signin.desktop.spec.ts","",""
+"","4838","User registration","desktop","Sat Mar 01 11:48:17 GMT 2025","passed","Sat Mar 01 11:48:21 GMT 2025","","auth/signup.desktop.spec.ts","",""
+"","4334","Add items to basket","desktop","Sat Mar 01 11:48:17 GMT 2025","passed","Sat Mar 01 11:48:21 GMT 2025","","gallery/gallery.desktop.spec.ts","",""
